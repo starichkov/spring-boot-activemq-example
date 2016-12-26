@@ -39,11 +39,12 @@ If you do everything right, you'll see following log messages at the sender's co
 
 And in "receiver-app" console you'll be able to see following messages from the topic:
 <pre>
-TopicSampleMessageReceiver1 : Received < Sample Message{title=From Timer, body=Message #6 from Timer.} >
-TopicSampleMessageReceiver2 : Received < Sample Message{title=From Timer, body=Message #6 from Timer.} ></pre>
+TopicSampleMessageReceiver1 : Received &lt; Sample Message{title=From Timer, body=Message #6 from Timer.} &gt;
+TopicSampleMessageReceiver2 : Received &lt; Sample Message{title=From Timer, body=Message #6 from Timer.} &gt;
+</pre>
 and one from the queue:
 <pre>
-QueueSampleMessageReceiver : Received < Sample Message{title=The Force, body=Let the force be with you!} >
+QueueSampleMessageReceiver : Received &lt; Sample Message{title=The Force, body=Let the force be with you!} &gt;
 </pre>
 
 Also, you can send messages to the consumers (in JSON format) using ActiveMQ admin console:
