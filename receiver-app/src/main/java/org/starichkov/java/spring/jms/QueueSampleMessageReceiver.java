@@ -10,9 +10,10 @@ import org.starichkov.java.spring.jms.messages.SampleMessage;
  * @since 23.12.2016 13:32
  */
 @Component
-public class Receiver {
-    @JmsListener(destination = MessagingConfiguration.QUEUE_NAME, containerFactory = "messageFactory")
+public class QueueSampleMessageReceiver extends BaseSampleMessageReceiver {
+
+    @JmsListener(destination = MessagingConfiguration.DEFAULT_QUEUE_NAME, containerFactory = "sampleMessageFactory")
     public void receiveMessage(SampleMessage message) {
-        System.out.println("Received < " + message + " >");
+        logger.info("Received < " + message + " >");
     }
 }
