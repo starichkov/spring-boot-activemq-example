@@ -9,9 +9,9 @@
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
     <modules>
-        <module>sender-app</module>
-        <module>receiver-app</module>
         <module>messages</module>
+        <module>receiver-app</module>
+        <module>sender-app</module>
     </modules>
 
     <parent>
@@ -19,19 +19,19 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.4.3.RELEASE</version>
     </parent>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-activemq</artifactId>
-        </dependency>
-    </dependencies>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-activemq</artifactId>
+                <version>1.4.3.RELEASE</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>1.4.3.RELEASE</version>
+            </dependency>
             <dependency>
                 <groupId>org.starichkov.java.spring</groupId>
                 <artifactId>messages</artifactId>

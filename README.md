@@ -25,24 +25,23 @@ Topic and queue will be available at 61616 port by default.
 Enjoy!
 
 # Run applications
-Receiver and sender applications are Spring Boot applications. Each of them starts in it's own Tomcat instance, so you need to change port for them.
-
-Provide ```-Dserver.port=65001``` (or another one you want) to receiver's launch configuration. Do the same, with another port of course, for sender.
-
+Receiver is a Spring Boot application and starts in it's own Tomcat instance, so you need to change port for it.
+Provide ```-Dserver.port=65001``` (or another one you want) to receiver's launch configuration.
 Receiver should be started first.
+
+Sender is Spring MVC application with user interface and should be started using Maven's ```mvn spring-boot:run``` goal.
+You can find start page on ```localhost:8080/``` by default.
 
 # Messaging
 
-If you do everything right, you'll see following log messages at the sender's console:
+If you do everything right, you'll see start page of sender's application with buttons for sending messages to topic and to queue.
 
-<pre>Sending a sample message...</pre>
-
-And in "receiver-app" console you'll be able to see following messages from the topic:
+In receiver's application console you'll be able to see following messages from the topic:
 <pre>
-TopicSampleMessageReceiver1 : Received &lt; Sample Message{title=From Timer, body=Message #6 from Timer.} &gt;
-TopicSampleMessageReceiver2 : Received &lt; Sample Message{title=From Timer, body=Message #6 from Timer.} &gt;
+TopicSampleMessageReceiver1 : Received &lt; Sample Message{title=From Timer, body=Message #6 from topic.} &gt;
+TopicSampleMessageReceiver2 : Received &lt; Sample Message{title=From Timer, body=Message #6 from topic.} &gt;
 </pre>
-and one from the queue:
+and following message from the queue:
 <pre>
 QueueSampleMessageReceiver : Received &lt; Sample Message{title=The Force, body=Let the force be with you!} &gt;
 </pre>
