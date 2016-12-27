@@ -49,3 +49,8 @@ QueueSampleMessageReceiver : Received &lt; Sample Message{title=The Force, body=
 Also, you can send messages to the consumers (in JSON format) using ActiveMQ admin console:
 
 <pre>{ "title":"Test Title 01", "body":"Test Body 01" }</pre>
+
+# Useful links
+
+* [Spring Boot Hello World Example with JSP](https://github.com/hellokoding/springboot-jsp)
+* [Spring Boot Sample Web JSP](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples/spring-boot-sample-web-jsp)
