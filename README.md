@@ -18,13 +18,11 @@ $ activemq start
 
 ### Windows
 
-Download latest release from [official site](http://activemq.apache.org/download.html) and unpack archive file.
-
-Go to the ActiveMQ bin directory, and open command prompt from there.
+Download latest release from [official site](http://activemq.apache.org/download.html) and unpack archive file. Go to the ActiveMQ bin directory, and open command prompt from there (hold Shift and click RMB -> Open command window here).
 
 <pre>&gt; activemq.bat start</pre>
 
----
+### Running
 
 Now, if everything is ok, open ActiveMQ's admin console at [http://localhost:8161/](http://localhost:8161/) with "admin/admin" credentials.
 
