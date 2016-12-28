@@ -9,9 +9,9 @@
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
     <modules>
-        <module>messages</module>
-        <module>receiver-app</module>
-        <module>sender-app</module>
+        <module>api</module>
+        <module>consumer</module>
+        <module>producer</module>
     </modules>
 
     <parent>
@@ -34,7 +34,7 @@
             </dependency>
             <dependency>
                 <groupId>org.starichkov.java.spring</groupId>
-                <artifactId>messages</artifactId>
+                <artifactId>api</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
         </dependencies>
