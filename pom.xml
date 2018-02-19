@@ -8,6 +8,11 @@
     <artifactId>spring-jms-example</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
+
+    <properties>
+        <spring.boot.version>1.5.10.RELEASE</spring.boot.version>
+    </properties>
+
     <modules>
         <module>api</module>
         <module>consumer</module>
@@ -17,7 +22,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.4.3.RELEASE</version>
+        <version>1.5.10.RELEASE</version>
     </parent>
 
     <dependencyManagement>
@@ -25,12 +30,12 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-activemq</artifactId>
-                <version>1.4.3.RELEASE</version>
+                <version>${spring.boot.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
-                <version>1.4.3.RELEASE</version>
+                <version>${spring.boot.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.starichkov.java.spring</groupId>

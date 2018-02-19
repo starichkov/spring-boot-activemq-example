@@ -1,7 +1,5 @@
 package org.starichkov.java.spring.jms.messages;
 
-import com.google.common.base.MoreObjects;
-
 /**
  * @author Vadim Starichkov
  * @since 23.12.2016 13:33
@@ -36,9 +34,9 @@ public class SampleMessage {
 
     @Override
     public String toString() {
-        return MoreObjects.toStringHelper("Sample Message")
-                .add("title", title)
-                .add("body", body)
-                .toString();
+        return "SampleMessage{" +
+                "title='" + title + '\'' +
+                ", body='" + body + '\'' +
+                '}';
     }
 }
