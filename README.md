@@ -5,16 +5,25 @@ Contains two Spring Boot applications - consumer and producer.
 
 # Run ActiveMQ
 
-Download latest release from [official site](http://activemq.apache.org/download.html) and unpack zip file.
-
 ### Linux
-Open terminal and go to the ActiveMQ bin directory.
-<pre>$ activemq start</pre>
+
+Download and unpack ActiveMQ, go to "bin" directory:
+
+<pre>
+$ wget http://apache-mirror.rbc.ru/pub/apache//activemq/5.14.3/apache-activemq-5.14.3-bin.tar.gz
+$ tar -zxf apache-activemq-5.14.3-bin.tar.gz
+$ cd apache-activemq-5.14.3/bin
+$ activemq start
+</pre>
 
 ### Windows
-Go to the ActiveMQ bin directory, and open command prompt from there.
+
+Download latest release from [official site](http://activemq.apache.org/download.html) and unpack archive file. Go to the ActiveMQ bin directory, and open command prompt from there (hold Shift and click RMB -> Open command window here).
 
 <pre>&gt; activemq.bat start</pre>
+
+### Running
+
 Now, if everything is ok, open ActiveMQ's admin console at [http://localhost:8161/](http://localhost:8161/) with "admin/admin" credentials.
 
 Now we need to create topic and queue:
