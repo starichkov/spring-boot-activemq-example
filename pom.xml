@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.starichkov.java.spring</groupId>
-    <artifactId>spring-jms-example</artifactId>
+    <artifactId>spring-boot-activemq-example</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>
-        <spring.boot.version>1.5.10.RELEASE</spring.boot.version>
+        <spring.boot.version>1.5.13.RELEASE</spring.boot.version>
     </properties>
 
     <modules>
@@ -22,7 +22,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.10.RELEASE</version>
+        <version>1.5.13.RELEASE</version>
     </parent>
 
     <dependencyManagement>

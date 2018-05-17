@@ -1,5 +1,5 @@
-# Spring JMS with ActiveMQ example
-Sample project show how to use Spring JMS and Apache ActiveMQ.
+# Spring Boot + ActiveMQ example
+Sample project show how to use Spring Boot with Apache ActiveMQ.
 
 Contains two Spring Boot applications - consumer and producer.
 
@@ -30,17 +30,16 @@ Now we need to create topic and queue:
 * Go to Topics tab and create new queue with name "sampleMessageTopic".
 * Go to Queues tab and create new queue with name "sampleMessageQueue". 
 
-Topic and queue will be available at 61616 port by default.
+Topic and queue will be available at `61616` port by default.
 
 Enjoy!
 
 # Run applications
-Consumer is a Spring Boot application and starts in it's own Tomcat instance, so you need to change port for it.
-Provide ```-Dserver.port=65001``` (or another one you want) to consumer's launch configuration.
+Consumer is a Spring Boot application and starts in it's own Tomcat instance on `65001` port (see `application.yml`).
 Consumer should be started first.
 
-Producer is Spring MVC application with user interface and should be started using Maven's ```mvn spring-boot:run``` goal.
-You can find start page on ```localhost:8080/``` by default.
+Producer is Spring MVC application with user interface and should be started using Maven's `mvn spring-boot:run` goal.
+You can find start page on `localhost:8080/` by default.
 
 # Messaging
 
