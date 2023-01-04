@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  org.starichkov.java.spring.jms.config.MessagingConfiguration

@@ -1,2 +1,6 @@
 server:
   port: 65001
+
+spring:
+  activemq:
+    broker-url: auto://localhost:61616

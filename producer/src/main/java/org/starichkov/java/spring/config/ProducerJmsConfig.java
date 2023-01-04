@@ -1,4 +1,4 @@
-package org.starichkov.java.spring.jms;
+package org.starichkov.java.spring.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,30 +6,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.core.JmsTemplate;
-import org.starichkov.java.spring.jms.config.MessagingConfiguration;
 import org.starichkov.java.spring.jms.messages.SampleMessage;
+
+import static org.starichkov.java.spring.jms.config.Constants.*;
 
 /**
  * @author Vadim Starichkov
  * @since 23.12.2016 13:28
  */
 @Configuration
-public class ProducerConfigurationJMS extends MessagingConfiguration {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ProducerConfigurationJMS.class);
+public class ProducerJmsConfig {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ProducerJmsConfig.class);
 
-    private JmsTemplate jmsTopicTemplate;
-    private JmsTemplate jmsQueueTemplate;
+    private final JmsTemplate jmsTopicTemplate;
+    private final JmsTemplate jmsQueueTemplate;
     private int messageCounter;
 
     @Autowired
-    @Qualifier("jmsTopicTemplate")
-    private void setJmsTopicTemplate(JmsTemplate jmsTopicTemplate) {
+    public ProducerJmsConfig(@Qualifier("jmsTopicTemplate") JmsTemplate jmsTopicTemplate,
+                             @Qualifier("jmsQueueTemplate") JmsTemplate jmsQueueTemplate) {
         this.jmsTopicTemplate = jmsTopicTemplate;
-    }
-
-    @Autowired
-    @Qualifier("jmsQueueTemplate")
-    private void setJmsQueueTemplate(JmsTemplate jmsQueueTemplate) {
         this.jmsQueueTemplate = jmsQueueTemplate;
     }
 
