@@ -1,9 +1,9 @@
-Spring Boot + ActiveMQ example
+Spring Boot ActiveMQ example
 =
 
 Sample project show how to use Spring Boot with Apache ActiveMQ.
 
-Contains two Spring Boot applications - consumer and producer.
+This project contains two Spring Boot applications - consumer and producer.
 
 ## Technical information
 
@@ -12,35 +12,48 @@ Contains two Spring Boot applications - consumer and producer.
 | Java          | 17      |
 | Spring Boot   | 2.7.x   |
 | Spring        | 5.3.x   |
+| ActiveMQ      | 5.17.4  |
 
-## Run ActiveMQ
+## ActiveMQ
 
-### Linux
-
-```shell
-wget https://dlcdn.apache.org//activemq/5.17.3/apache-activemq-5.17.3-bin.tar.gz
-```
+Download and unzip it in old way, as it does not have official Docker image:
 
 ```shell
-tar -zxf apache-activemq-5.17.3-bin.tar.gz
+wget https://dlcdn.apache.org//activemq/5.17.4/apache-activemq-5.17.4-bin.tar.gz
 ```
 
 ```shell
-cd apache-activemq-5.17.3/bin
+tar -zxf apache-activemq-5.17.4-bin.tar.gz
 ```
 
 ```shell
-./activemq start
+cd apache-activemq-5.17.4
 ```
 
-### Windows
+### Enable ActiveMQ Admin Console
 
-Download the latest release from [official site](https://activemq.apache.org/components/classic/download/) and unpack archive file.
+Open the file `conf/jetty.xml` and change following property from:
 
-Go to the ActiveMQ bin directory, and open command prompt from there (hold Shift and click RMB -> Open command window here).
-
+```xml
+<property name="host" value="127.0.0.1"/>
 ```
-activemq.bat start
+
+to
+
+```xml
+<property name="host" value="0.0.0.0"/>
+```
+
+### Start
+
+```shell
+./bin/activemq start
+```
+
+### Stop
+
+```shell
+./bin/activemq stop
 ```
 
 ## Run Applications
@@ -92,8 +105,3 @@ Also, you can send messages to the consumers (in JSON format) using ActiveMQ adm
   "body": "Test Body 01"
 }
 ```
-
-## Useful links
-
-* [Spring Boot Hello World Example with JSP](https://github.com/hellokoding/springboot-jsp)
-* [Spring Boot Sample Web JSP](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples/spring-boot-sample-web-jsp)

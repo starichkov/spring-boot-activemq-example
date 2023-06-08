@@ -1,7 +1,7 @@
 package org.starichkov.java.spring.jms.config;
 
 /**
- * @author Vadim Starichkov (starichkovva@gmail.com)
+ * @author Vadim Starichkov
  * @since 25.05.2022 16:14
  */
 public final class Constants {

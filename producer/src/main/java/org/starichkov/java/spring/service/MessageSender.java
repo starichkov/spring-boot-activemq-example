@@ -1,39 +1,45 @@
-package org.starichkov.java.spring.config;
+package org.starichkov.java.spring.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.core.JmsTemplate;
+import org.springframework.stereotype.Service;
 import org.starichkov.java.spring.jms.messages.SampleMessage;
 
-import static org.starichkov.java.spring.jms.config.Constants.*;
+import java.util.concurrent.atomic.AtomicLong;
+
+import static org.starichkov.java.spring.jms.config.Constants.DEFAULT_QUEUE_NAME;
+import static org.starichkov.java.spring.jms.config.Constants.DEFAULT_TOPIC_NAME;
 
 /**
  * @author Vadim Starichkov
- * @since 23.12.2016 13:28
+ * @since 08.06.2023 15:36
  */
-@Configuration
-public class ProducerJmsConfig {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ProducerJmsConfig.class);
+@Service
+public class MessageSender {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(MessageSender.class);
 
     private final JmsTemplate jmsTopicTemplate;
+
     private final JmsTemplate jmsQueueTemplate;
-    private int messageCounter;
+
+    private AtomicLong topicMessageCounter;
 
     @Autowired
-    public ProducerJmsConfig(@Qualifier("jmsTopicTemplate") JmsTemplate jmsTopicTemplate,
-                             @Qualifier("jmsQueueTemplate") JmsTemplate jmsQueueTemplate) {
+    public MessageSender(@Qualifier("jmsTopicTemplate") JmsTemplate jmsTopicTemplate,
+                         @Qualifier("jmsQueueTemplate") JmsTemplate jmsQueueTemplate) {
         this.jmsTopicTemplate = jmsTopicTemplate;
         this.jmsQueueTemplate = jmsQueueTemplate;
+        this.topicMessageCounter = new AtomicLong(1);
     }
 
     public void sendTopic() {
         LOGGER.info("Sending message to topic...");
         jmsTopicTemplate.convertAndSend(DEFAULT_TOPIC_NAME,
-                new SampleMessage("From Timer", "Message #" + messageCounter + " from topic."));
-        messageCounter++;
+                new SampleMessage("From Timer", "Message #" + topicMessageCounter.getAndIncrement() + " from topic."));
     }
 
     public void sendQueue() {

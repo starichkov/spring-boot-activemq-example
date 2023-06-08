@@ -17,7 +17,7 @@ public class TopicSampleMessageConsumer1 {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TopicSampleMessageConsumer1.class);
 
-    @JmsListener(destination = DEFAULT_TOPIC_NAME/*, containerFactory = "sampleMessageFactory"*/)
+    @JmsListener(destination = DEFAULT_TOPIC_NAME, containerFactory = "sampleMessageFactory")
     public void receiveMessage(SampleMessage message) {
         LOGGER.info("Topic Consumer 1: received < {} >", message);
     }

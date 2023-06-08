@@ -16,7 +16,7 @@ public class QueueSampleMessageConsumer {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(QueueSampleMessageConsumer.class);
 
-    @JmsListener(destination = Constants.DEFAULT_QUEUE_NAME/*, containerFactory = "sampleMessageFactory"*/)
+    @JmsListener(destination = Constants.DEFAULT_QUEUE_NAME, containerFactory = "sampleMessageFactory")
     public void receiveMessage(SampleMessage message) {
         LOGGER.info("Queue Consumer: received < {} >", message);
     }

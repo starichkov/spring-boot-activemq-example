@@ -3,7 +3,7 @@ package org.starichkov.java.spring.controller.api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.starichkov.java.spring.config.ProducerJmsConfig;
+import org.starichkov.java.spring.service.MessageSender;
 
 /**
  * @author Vadim Starichkov
@@ -12,10 +12,10 @@ import org.starichkov.java.spring.config.ProducerJmsConfig;
 @RestController
 public class ProducerRestController {
 
-    private final ProducerJmsConfig jms;
+    private final MessageSender jms;
 
     @Autowired
-    public ProducerRestController(ProducerJmsConfig jms) {
+    public ProducerRestController(MessageSender jms) {
         this.jms = jms;
     }
 

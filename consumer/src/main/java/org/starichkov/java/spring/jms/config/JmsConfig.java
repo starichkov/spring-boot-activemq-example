@@ -1,18 +1,19 @@
 package org.starichkov.java.spring.jms.config;
 
-//import org.apache.activemq.ActiveMQConnectionFactory;
 import org.springframework.boot.autoconfigure.jms.DefaultJmsListenerContainerFactoryConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.annotation.EnableJms;
 import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
 import org.springframework.jms.config.JmsListenerContainerFactory;
+import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
+import org.springframework.jms.support.converter.MessageConverter;
 import org.springframework.jms.support.destination.DestinationResolver;
 
 import javax.jms.ConnectionFactory;
 
 /**
- * @author Vadim Starichkov (starichkovva@gmail.com)
+ * @author Vadim Starichkov
  * @since 04.01.2023 19:02
  */
 @Configuration
@@ -34,7 +35,7 @@ public class JmsConfig {
      * @throws RuntimeException if destination name does not end with "Queue" or "Topic"
      */
     @Bean
-    public DestinationResolver destinationResolver() throws RuntimeException {
+    public DestinationResolver sampleDestinationResolver() throws RuntimeException {
         return (session, destinationName, pubSubDomain) -> {
             if (destinationName.endsWith("Queue")) {
                 assert session != null;
@@ -48,11 +49,21 @@ public class JmsConfig {
     }
 
     @Bean
+    public MessageConverter sampleMessageConverter() {
+        MappingJackson2MessageConverter messageConverter = new MappingJackson2MessageConverter();
+        messageConverter.setTypeIdPropertyName("_type_");
+        return messageConverter;
+    }
+
+    @Bean
     public JmsListenerContainerFactory<?> sampleMessageFactory(DefaultJmsListenerContainerFactoryConfigurer configurer,
-                                                               ConnectionFactory connectionFactory
+                                                               ConnectionFactory connectionFactory,
+                                                               DestinationResolver sampleDestinationResolver,
+                                                               MessageConverter sampleMessageConverter
     ) {
         DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
-        factory.setDestinationResolver(destinationResolver());
+        factory.setDestinationResolver(sampleDestinationResolver);
+        factory.setMessageConverter(sampleMessageConverter);
         configurer.configure(factory, connectionFactory);
         return factory;
     }
