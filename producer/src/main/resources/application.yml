@@ -1,0 +1,17 @@
+#server:
+#  tomcat:
+#    access-log:
+#      enabled: true
+
+spring:
+  activemq:
+    broker-url: auto://localhost:61616
+  mvc:
+    view:
+      prefix: /WEB-INF/pages/
+      suffix: .jsp
+
+#logging:
+#  level:
+#    org.apache.tomcat: debug
+#    org.apache.catalina: debug
